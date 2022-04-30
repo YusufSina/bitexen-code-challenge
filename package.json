@@ -1,0 +1,24 @@
+{
+  "name": "bitexen-code-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://YusufSina@github.com/YusufSina/bitexen-code-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YusufSina/bitexen-code-challenge/issues"
+  },
+  "homepage": "https://github.com/YusufSina/bitexen-code-challenge#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "web3": "^1.7.3"
+  }
+}
