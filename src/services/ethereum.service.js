@@ -18,7 +18,7 @@ const ethereumService = {
       txId: m.transactionHash, 
       from: m.returnValues.from, 
       to: m.returnValues.to, 
-      amount: web3.utils.fromWei(m.returnValues.value, unitByDecimal[tokenContract.DECIMAL])
+      amount: parseFloat(web3.utils.fromWei(m.returnValues.value, unitByDecimal[tokenContract.DECIMAL]))
     }));
 
     let receivedTransfers = await tetherContract.getPastEvents("Transfer", {
@@ -31,7 +31,7 @@ const ethereumService = {
       txId: m.transactionHash, 
       from: m.returnValues.from, 
       to: m.returnValues.to, 
-      amount: web3.utils.fromWei(m.returnValues.value, unitByDecimal[tokenContract.DECIMAL])
+      amount: parseFloat(web3.utils.fromWei(m.returnValues.value, unitByDecimal[tokenContract.DECIMAL]))
     }));
 
     //concating send-received transactions
