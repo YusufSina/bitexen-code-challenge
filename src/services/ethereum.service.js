@@ -11,9 +11,9 @@ const ethereumService = {
     const tetherContract = new web3.eth.Contract(tokenContract.ABI, tokenContract.ADDRESS);
     
     let sendTransfers = await tetherContract.getPastEvents("Transfer", {
-      filter: { from: TREASURY_WALLET },
-      fromBlock: 14450000,
-      toBlock: 14650000,
+      filter: { from: walletAddress },
+      fromBlock,
+      toBlock,
     });
 
     sendTransfers = sendTransfers.map(m => ({ 
@@ -24,9 +24,9 @@ const ethereumService = {
     }));
 
     let receivedTransfers = await tetherContract.getPastEvents("Transfer", {
-      filter: { to: TREASURY_WALLET },
-      fromBlock: 14450000,
-      toBlock: 14650000,
+      filter: { to: walletAddress },
+      fromBlock,
+      toBlock,
     });
 
     receivedTransfers = receivedTransfers.map(m => ({ 
