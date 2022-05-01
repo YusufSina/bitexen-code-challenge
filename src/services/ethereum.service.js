@@ -1,10 +1,10 @@
 const Web3 = require('web3');
-const { TREASURY_WALLET } = require("../config");
+const { TREASURY_WALLET, INFURA_URL } = require("../config");
 const { unitByDecimal } = require("../helpers");
 
 const ethereumService = {
   getTransactions: async ({fromBlock, toBlock, walletAddress, tokenContract}) => {
-    const web3 = new Web3(process.env.INFURA_URL);
+    const web3 = new Web3(INFURA_URL);
 
     const tetherContract = new web3.eth.Contract(tokenContract.ABI, tokenContract.ADDRESS);
     
