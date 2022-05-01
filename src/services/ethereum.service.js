@@ -44,12 +44,19 @@ const ethereumService = {
       promises.push(web3.eth.getTransaction(transfers[i].txId));
     }
 
-    const txDetails = await Promise.all(promises);
+    let txDetails = await Promise.all(promises);
 
-    console.log(txDetails);
+    txDetails = Object.assign({}, ...txDetails.map(m => ({ [m.hash]: m })));
 
-  // return result;
-  return transfers
+    transfers = transfers.map(m => 
+      ({...m, fee: txDetails[m.txId].gas * parseFloat(web3.utils.fromWei(txDetails[m.txId].gasPrice, 'ether')) }));
+
+    const totalPaidFee = transfers.filter(f => f.from === TREASURY_WALLET).reduce((n, { fee }) => n + fee, 0);
+
+  return {
+    totalPaidFee,
+    transfers,
+  };
   }
 }
 
