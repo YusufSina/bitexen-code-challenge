@@ -19,7 +19,9 @@
   "homepage": "https://github.com/YusufSina/bitexen-code-challenge#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
     "dotenv": "^16.0.0",
+    "ethereum-input-data-decoder": "^0.4.1",
     "express": "^4.18.1",
     "web3": "^1.7.3"
   }
